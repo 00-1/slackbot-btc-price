@@ -154,7 +154,7 @@ class CryptoMessageHandler extends MessageHandler {
 		var price_delta = price_max - price_min;
 		var acsii_chart_steps = 30;
 
-		var response = '';
+		var response = 'The last eight days:\r\n`';
 
 		for (let i = 1; i < historicalPrices_array.length; i++) {
 			const dataPoint = historicalPrices_array[i];
@@ -183,11 +183,7 @@ class CryptoMessageHandler extends MessageHandler {
 			// var change_symbol = (diff >= 0) ? ':chart_with_downwards_trend:' : ':chart_with_upwards_trend:';
 			if (diff == 0) { change_symbol = ':zzz:'; }
 
-			if (dataPoint.type == 'today') {
-				response += `_${date} : ${price_symbol}${price_str}  ${step_str}${change_symbol}_\r\n`;
-				continue;
-			}
-			response += `${date} : *${price_symbol}${price_str}*  ${step_str}${change_symbol}\r\n`;
+			response += `\`${date} : ${price_symbol}${price_str}\`  ${step_str}${change_symbol}\r\n`;
 		}
 		
 		//console.log(historicalPrices_array);
