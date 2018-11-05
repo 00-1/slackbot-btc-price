@@ -184,10 +184,6 @@ class CryptoMessageHandler extends MessageHandler {
 			if (diff == 0) { change_symbol = ':zzz:'; }
 
 			response += `\`${date} : ${price_symbol}${price_str}\`  ${step_str}${change_symbol}\r\n`;
-			
-                        if (dataPoint.type == 'today') {
-				continue;
-                        }
 		}
 		
 		//console.log(historicalPrices_array);
